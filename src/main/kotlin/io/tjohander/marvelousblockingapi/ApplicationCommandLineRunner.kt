@@ -1,16 +1,17 @@
 package io.tjohander.marvelousblockingapi
 
-import io.tjohander.marvelousblockingapi.service.CharacterServiceOkHttp
-import org.springframework.beans.factory.annotation.Autowired
+import io.tjohander.marvelousblockingapi.service.ICharacterService
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 
 @Component
 class ApplicationCommandLineRunner(
-    @Autowired val characterService: CharacterServiceOkHttp
+    val characterService: ICharacterService,
 ) : CommandLineRunner {
 
+
     override fun run(vararg args: String?): Unit {
-        characterService.getCharacterByStartsWith("Magneto")
+        val characterResult = characterService.getCharacterStartsWith("Magneto")
+        println(characterResult?.data?.results?.first().toString())
     }
 }

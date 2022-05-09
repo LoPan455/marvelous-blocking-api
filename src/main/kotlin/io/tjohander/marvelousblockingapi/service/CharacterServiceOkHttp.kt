@@ -16,12 +16,15 @@ import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Primary
+import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 import java.io.IOException
 import java.time.Instant
 import java.util.*
 
 @Service
+@Primary
 class CharacterServiceOkHttp(
     private val client: OkHttpClient,
     @Value("\${marvel-api.public-key}") val marvelApiPublicKey: String,

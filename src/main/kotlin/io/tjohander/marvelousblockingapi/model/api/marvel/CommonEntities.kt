@@ -21,7 +21,13 @@ data class ResourceURI(
 data class ResourceList<T>(
     val available: Int,
     val collectionURI: String,
-    val items: List<T>
+    val items: List<ResourceSummary>,
+    val returned: Int
+)
+
+data class ResourceSummary(
+    val resourceURI: String,
+    val name: String
 )
 
 data class Image(
